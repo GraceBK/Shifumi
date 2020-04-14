@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/ll_play_invite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:rotation="180"
+            android:padding="10dp"
+            android:showDividers="middle"
+            android:divider="@drawable/empty_divider"
+            android:background="@color/colorPrimaryDark">
+            <TextView
+                android:id="@+id/tv_name_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="coucou"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/tv_sw_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Win : 0"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/tv_sl_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loss : 0"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_play_invite"
+            android:rotation="180"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:showDividers="middle"
+            android:divider="@drawable/empty_divider_hand"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/choose_rock2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_rock"/>
+
+            <ImageButton
+                android:id="@+id/choose_paper2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_paper"/>
+
+            <ImageButton
+                android:id="@+id/choose_scissors2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_scissors"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_hand_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HUMAN vs COMPUTER"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HUMAN vs COMPUTER"/>
+
+            <TextView
+                android:id="@+id/tv_hand_human"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HUMAN vs COMPUTER"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ll_play_default"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:showDividers="middle"
+            android:divider="@drawable/empty_divider_hand"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/choose_rock"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_rock"/>
+
+            <ImageButton
+                android:id="@+id/choose_paper"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_paper"/>
+
+            <ImageButton
+                android:id="@+id/choose_scissors"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:src="@drawable/ic_scissors"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_play_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:showDividers="middle"
+            android:divider="@drawable/empty_divider"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:background="@color/gray500">
+            <TextView
+                android:id="@+id/tv_name_default"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="coucou 2"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/tv_sw_default"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Win : 0"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/tv_sl_default"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loss : 0"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

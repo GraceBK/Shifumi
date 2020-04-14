@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Shifumi</string>
+
+    <string name="rock">Rock</string>
+    <string name="paper">Paper</string>
+    <string name="scissors">Scissors</string>
+    <string name="btn_vs_computer">vs Computer</string>
+    <string name="btn_vs_human">vs Human</string>
+    <string name="logo_desc">Logo</string>
+    <string name="version_app">version 1.0.0</string>
+    <string name="the_end_tv">Fin de la partie</string>
+</resources>
