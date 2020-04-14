@@ -35,8 +35,7 @@
             android:elevation="0dp"
             android:background="@drawable/bg_btn_style"
             android:text="Commencer un partie"
-            android:textColor="@color/white"
-            android:shadowColor="#F00"/>
+            android:textColor="@color/brown"/>
 
     </LinearLayout>
 

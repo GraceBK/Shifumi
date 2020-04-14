@@ -30,31 +30,18 @@ class GameEngineTest {
     }
 
     @Test
-    fun testPlayPlayer2Loss() {
-        player1.choose(Hand.PAPER)
-        player2.choose(Hand.ROCK)
-        gameEngine.play()
-        assertTrue(player2.nbLoss > player1.nbLoss)
-    }
-
-    @Test
     fun testContinueParty() {
         // Premier coup
-        player1.chooseRandom()
-        player2.chooseRandom()
+        player1.choose(Hand.PAPER)
+        player2.choose(Hand.PAPER)
         gameEngine.play()
-        val isFinished1: Boolean = gameEngine.continueParty()
-        // Deuxieme coup
-        player1.chooseRandom()
-        player2.chooseRandom()
-        gameEngine.play()
-        val isFinished2: Boolean = gameEngine.continueParty()
-        assertEquals(!isFinished1, !isFinished2)
+        val can: Boolean = gameEngine.continueParty()   // return true
+        assertTrue(can)
     }
 
     @Test
     fun testMatch() {
         gameEngine.match()
-        assertEquals(gameEngine.isFinished, true)
+        assertEquals(gameEngine.continueParty(), true)
     }
 }

@@ -19,28 +19,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:gravity="center"
             android:orientation="horizontal"
             android:padding="10dp"
             android:showDividers="middle"
             android:divider="@drawable/empty_divider"
             android:background="@color/colorAccent">
             <TextView
-                android:id="@+id/tv_name_other"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="coucou"/>
-
-            <TextView
-                android:id="@+id/tv_sw_other"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Win : 0"/>
-
-            <TextView
-                android:id="@+id/tv_sl_other"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Loss : 0"/>
+                android:text="@string/app_name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -157,12 +148,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Win : 0"/>
-
-            <TextView
-                android:id="@+id/tv_sl_default"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Loss : 0"/>
         </LinearLayout>
 
 

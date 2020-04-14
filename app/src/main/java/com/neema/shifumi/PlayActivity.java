@@ -34,10 +34,8 @@ public class PlayActivity extends AppCompatActivity {
     private Player player;
     private Player otherPlayer;
     private GameEngine gameEngine;
-    // View components
-    TextView namePlayer, scoreWinPlayer, scoreLossPlayer;
-    TextView nameOtherPlayer, scoreWinOtherPlayer, scoreLossOtherPlayer;
 
+    // View components
     private LinearLayout ll_default;
     private ImageButton btnRock, btnPaper, btnScissors;
     private ImageButton btnRock2, btnPaper2, btnScissors2;
@@ -143,13 +141,27 @@ public class PlayActivity extends AppCompatActivity {
 
         TextView nameP1 = dialogView.findViewById(R.id.tv_sc_player1);
         TextView nameP2 = dialogView.findViewById(R.id.tv_sc_player2);
-        TextView resultP1 = dialogView.findViewById(R.id.tv_sc_data1);
-        TextView resultP2 = dialogView.findViewById(R.id.tv_sc_data2);
+        ImageView resultP1 = dialogView.findViewById(R.id.iv_winner1);
+        ImageView resultP2 = dialogView.findViewById(R.id.iv_winner2);
         TextView resultNull = dialogView.findViewById(R.id.tv_sc_data3);
-        nameP1.setText(namePlayer.getText());
-        nameP2.setText(nameOtherPlayer.getText());
-        resultP1.setText(scoreWinPlayer.getText());
-        resultP2.setText(scoreWinOtherPlayer.getText());
+        nameP1.setText("" + player.getType());
+        nameP2.setText("" + otherPlayer.getType());
+        if (player.getNbWin()) {
+            resultP1.setImageResource(R.drawable.ic_trophy);
+        }
+
+        if (!player.getNbWin()) {
+            resultP1.setImageResource(0);
+        }
+
+        if (otherPlayer.getNbWin()) {
+            resultP2.setImageResource(R.drawable.ic_trophy);
+        }
+
+        if (!otherPlayer.getNbWin()) {
+            resultP2.setImageResource(0);
+        }
+
         iv_hand1 = dialogView.findViewById(R.id.iv_hand1);
         iv_hand2 = dialogView.findViewById(R.id.iv_hand2);
 
@@ -243,22 +255,10 @@ public class PlayActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void updateUI() {
-        scoreWinPlayer.setText("Win : " + player.getNbWin());
-        scoreLossPlayer.setText("Loss : " + player.getNbLoss());
-        scoreWinOtherPlayer.setText("Win : " + otherPlayer.getNbWin());
-        scoreLossOtherPlayer.setText("Loss : " + otherPlayer.getNbLoss());
 
-        if (player.getNbWin() > 0 || otherPlayer.getNbWin() > 0) {
-            ll_default.setVisibility(View.INVISIBLE);
+        if (player.getNbWin() || otherPlayer.getNbWin()) {
+            //ll_default.setVisibility(View.INVISIBLE);
             showReplayDialog();
-            /*ll_default.setVisibility(View.INVISIBLE);
-            int SPLASH_TIME_OUT = 500;
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    showReplayDialog();
-                }
-            }, SPLASH_TIME_OUT);*/
         }
 
         if (player.getMyChoose() != null) {
@@ -287,16 +287,6 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        namePlayer = findViewById(R.id.tv_name_default);
-        namePlayer.setText(player.getType().name());
-        scoreWinPlayer = findViewById(R.id.tv_sw_default);
-        scoreLossPlayer = findViewById(R.id.tv_sl_default);
-
-        nameOtherPlayer = findViewById(R.id.tv_name_other);
-        nameOtherPlayer.setText(otherPlayer.getType().name());
-        scoreWinOtherPlayer = findViewById(R.id.tv_sw_other);
-        scoreLossOtherPlayer = findViewById(R.id.tv_sl_other);
-
         ll_default = findViewById(R.id.ll_chooser_default);
         btnRock = findViewById(R.id.choose_rock);
         btnPaper = findViewById(R.id.choose_paper);
@@ -317,20 +307,12 @@ public class PlayActivity extends AppCompatActivity {
     private void initParty() {
         player = new Player(PlayerType.HUMAN);
         otherPlayer = (Player) getIntent().getSerializableExtra(Player.class.getName());
-        player.setNbWin(0);
-        player.setNbLoss(0);
+        player.setNbWin(false);
         player.setNbEgality(0);
 
-        otherPlayer.setNbWin(0);
-        otherPlayer.setNbLoss(0);
+        otherPlayer.setNbWin(false);
         otherPlayer.setNbEgality(0);
         assert otherPlayer != null;
         gameEngine = new GameEngine(player, otherPlayer);
-    }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
     }
 }

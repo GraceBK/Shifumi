@@ -14,7 +14,7 @@ class GameEngine(private var player1: Player, private var player2: Player) {
             try {
                 //TimeUnit.SECONDS.sleep(1)
                 Thread.sleep(1_000)
-                if (player1.nbWin == 3 || player2.nbWin == 3) {
+                if (player1.nbWin || player2.nbWin) {
                     isFinished = true
                     break
                 }
@@ -23,31 +23,30 @@ class GameEngine(private var player1: Player, private var player2: Player) {
     }
 
     fun continueParty(): Boolean {
-        return if (player1.nbWin < 3) { true } else player2.nbWin < 3
+        if (!player1.nbWin || !player2.nbWin) {
+            return true
+        }
+        return false
     }
 
     fun play() {
-        if (player1.myChoose?.equals(Hand.ROCK)!! && player2.myChoose?.equals(Hand.SCISSORS)!!) {
-            player1.nbWin += 1
-            player2.nbLoss += 1
-        } else if (player1.myChoose?.equals(Hand.SCISSORS)!! && player2.myChoose?.equals(Hand.PAPER)!!) {
-            player1.nbWin += 1
-            player2.nbLoss += 1
-        } else if (player1.myChoose?.equals(Hand.PAPER)!! && player2.myChoose?.equals(Hand.ROCK)!!) {
-            player1.nbWin += 1
-            player2.nbLoss += 1
-        } else if (player2.myChoose?.equals(Hand.SCISSORS)!! && player1.myChoose?.equals(Hand.PAPER)!!) {
-            player2.nbWin += 1
-            player1.nbLoss += 1
-        } else if (player2.myChoose?.equals(Hand.PAPER)!! && player1.myChoose?.equals(Hand.ROCK)!!) {
-            player2.nbWin += 1
-            player1.nbLoss += 1
+        // ROCK > SCISSORS
+        if (player1.myChoose?.equals(Hand.ROCK)!! && player2.myChoose?.equals(Hand.SCISSORS)!!) {   // ROCK > SCISSORS
+            player1.nbWin = true
+        } else if (player1.myChoose?.equals(Hand.SCISSORS)!! && player2.myChoose?.equals(Hand.PAPER)!!) {   // SCISSORS > PAPER
+            player1.nbWin = true
+        } else if (player1.myChoose?.equals(Hand.PAPER)!! && player2.myChoose?.equals(Hand.ROCK)!!) {   // PAPER > ROCK
+            player1.nbWin = true
+        } else if (player2.myChoose?.equals(Hand.SCISSORS)!! && player1.myChoose?.equals(Hand.PAPER)!!) {   // SCISSORS > PAPER
+            player2.nbWin = true
+        } else if (player2.myChoose?.equals(Hand.PAPER)!! && player1.myChoose?.equals(Hand.ROCK)!!) {   // PAPER > ROCK
+            player2.nbWin = true
         } else if (player1.myChoose!! == player2.myChoose!!) {
             player1.nbEgality += 1
             player2.nbEgality += 1
         }
-        Log.d("GAME", player1.toString() + " " + player1.myChoose)
-        Log.d("GAME", ""+player2.toString() + " " + player2.myChoose)
+        println("GAME " + player1.toString() + " " + player1.myChoose)
+        println("GAME " + player2.toString() + " " + player2.myChoose)
     }
 
 }

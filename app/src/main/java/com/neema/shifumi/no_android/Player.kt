@@ -1,6 +1,5 @@
 package com.neema.shifumi.no_android
 
-import android.util.Log
 import java.io.Serializable
 import java.util.concurrent.TimeUnit
 
@@ -11,8 +10,7 @@ open class Player(playerType: PlayerType) : Serializable {
 
     var hands = arrayOf(Hand.ROCK, Hand.PAPER, Hand.SCISSORS)
 
-    var nbWin: Int = 0
-    var nbLoss: Int = 0
+    var nbWin: Boolean = false
     var nbEgality: Int = 0
 
     /**
@@ -33,7 +31,7 @@ open class Player(playerType: PlayerType) : Serializable {
      * Function return a Hand (random)
      */
     fun chooseRandom(): Hand? {
-        Log.i("GAME", "Wait computer choose")
+        println("GAME Wait computer choose")
         TimeUnit.MICROSECONDS.sleep(1)
         val hand = hands.random()
         this.myChoose = hand
@@ -59,7 +57,6 @@ open class Player(playerType: PlayerType) : Serializable {
         return "Player {" +
                 " player : " + type +
                 ", win : " + nbWin +
-                ", loss : " + nbLoss +
                 ", egality : " + nbEgality +
                 ", hand : " + toStringHands() +
                 " }"

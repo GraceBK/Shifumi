@@ -24,7 +24,7 @@
             android:showDividers="middle"
             android:divider="@drawable/empty_divider"
             android:background="@color/colorPrimaryDark">
-            <TextView
+            <!--<TextView
                 android:id="@+id/tv_name_other"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Loss : 0"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"/>-->
         </LinearLayout>
 
         <LinearLayout
@@ -94,22 +94,22 @@
             android:gravity="center_horizontal|center_vertical"
             android:orientation="vertical">
 
-            <TextView
+            <ImageView
+                android:visibility="gone"
                 android:id="@+id/tv_hand_other"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="HUMAN vs COMPUTER"/>
+                android:layout_width="70dp"
+                android:layout_height="70dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="HUMAN vs COMPUTER"/>
 
-            <TextView
+            <ImageView
+                android:visibility="gone"
                 android:id="@+id/tv_hand_human"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="HUMAN vs COMPUTER"/>
+                android:layout_width="70dp"
+                android:layout_height="70dp"/>
 
         </LinearLayout>
 
