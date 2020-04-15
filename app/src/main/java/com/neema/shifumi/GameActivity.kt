@@ -55,6 +55,10 @@ class GameActivity : AppCompatActivity() {
             val timer = object: CountDownTimer(3000, 1000) {
                 override fun onFinish() {
                     Log.e(TAG, "good finish")
+                    computers[0].chooseHand()
+                    computers[1].chooseHand()
+                    updateUI(computers[0], computers[1])
+                    play(computers[0], computers[1])
                 }
 
                 override fun onTick(p0: Long) {
@@ -72,108 +76,46 @@ class GameActivity : AppCompatActivity() {
                     }
                 }
             }, 1000, 1000)*/
-
-
-            //while (!computers[0].winner || !computers[1].winner) {
-            /*computers[0].chooseHand()
-            computers[1].chooseHand()
-            updateUI(computers[0], computers[1])
-            play(computers[0], computers[1])
-            if (computers[0].egality) {
-                Log.i(TAG, "good No winner ${computers[0].winner} ${computers[1].winner}")
-                timer.cancel()
-                initParty()
-                computers[0].chooseHand()
-                computers[1].chooseHand()
-                updateUI(computers[0], computers[1])
-                play(computers[0], computers[1])
-            } else {
-                Log.i(TAG, "good Winner")
-            }*/
-              /*  val winner = computers[0].versus(computers[1])
-                if (winner is Player) {
-                    Log.i(TAG, "good [${winner::class.java.simpleName}] WIN ${winner.myHand}")
-                    showReplayDialog(computers[0], computers[1])
-                }*/
-            //}
         }
     }
 
     private fun actionPlay() {
         if (vsComputer) {
             choose_rock.setOnClickListener {
-                tv_hand_human.visibility = View.INVISIBLE
-                tv_hand_other.visibility = View.INVISIBLE
-                val timer = object: CountDownTimer(3000, 1000) {
-                    override fun onFinish() {
-                        computer.chooseHand()
-                        Log.e(TAG, "[${computer::class.java.simpleName}] choose ${computer.myHand}")
-                        human.setPlayerHand(HandEnum.ROCK)
-                        human.chooseHand()
-                        Log.e(TAG, "[${human::class.java.simpleName}] choose ${human.myHand}")
-                        updateUI(human, computer)
-                        play(human, computer)
-                    }
-
-                    override fun onTick(p0: Long) {
-                        when ((p0/1000).toInt()) {
-                            2 -> tv_timer.text = "Shi"
-                            1 -> tv_timer.text = "ShiFu"
-                            else -> tv_timer.text = "ShiFumi"
-                        }
-                    }
-                }
-                timer.start()
+                iPlay(HandEnum.ROCK)
             }
             choose_paper.setOnClickListener {
-                tv_hand_human.visibility = View.INVISIBLE
-                tv_hand_other.visibility = View.INVISIBLE
-                val timer = object: CountDownTimer(3000, 1000) {
-                    override fun onFinish() {
-                        computer.chooseHand()
-                        Log.e(TAG, "[${computer::class.java.simpleName}] choose ${computer.myHand}")
-                        human.setPlayerHand(HandEnum.PAPER)
-                        human.chooseHand()
-                        Log.e(TAG, "[${human::class.java.simpleName}] choose ${human.myHand}")
-                        updateUI(human, computer)
-                        play(human, computer)
-                    }
-
-                    override fun onTick(p0: Long) {
-                        when ((p0/1000).toInt()) {
-                            2 -> tv_timer.text = "Shi"
-                            1 -> tv_timer.text = "ShiFu"
-                            else -> tv_timer.text = "ShiFumi"
-                        }
-                    }
-                }
-                timer.start()
+                iPlay(HandEnum.PAPER)
             }
             choose_scissors.setOnClickListener {
-                tv_hand_human.visibility = View.INVISIBLE
-                tv_hand_other.visibility = View.INVISIBLE
-                val timer = object: CountDownTimer(3000, 1000) {
-                    override fun onFinish() {
-                        computer.chooseHand()
-                        Log.e(TAG, "[${computer::class.java.simpleName}] choose ${computer.myHand}")
-                        human.setPlayerHand(HandEnum.SCISSORS)
-                        human.chooseHand()
-                        Log.e(TAG, "[${human::class.java.simpleName}] choose ${human.myHand}")
-                        updateUI(human, computer)
-                        play(human, computer)
-                    }
-
-                    override fun onTick(p0: Long) {
-                        when ((p0/1000).toInt()) {
-                            2 -> tv_timer.text = "Shi"
-                            1 -> tv_timer.text = "ShiFu"
-                            else -> tv_timer.text = "ShiFumi"
-                        }
-                    }
-                }
-                timer.start()
+                iPlay(HandEnum.SCISSORS)
             }
         }
+    }
+
+    private fun iPlay(handEnum: HandEnum) {
+        tv_hand_human.visibility = View.INVISIBLE
+        tv_hand_other.visibility = View.INVISIBLE
+        val timer = object: CountDownTimer(3000, 1000) {
+            override fun onFinish() {
+                computer.chooseHand()
+                Log.e(TAG, "[${computer::class.java.simpleName}] choose ${computer.myHand}")
+                human.setPlayerHand(handEnum)
+                human.chooseHand()
+                Log.e(TAG, "[${human::class.java.simpleName}] choose ${human.myHand}")
+                updateUI(human, computer)
+                play(human, computer)
+            }
+
+            override fun onTick(p0: Long) {
+                when ((p0/1000).toInt()) {
+                    2 -> tv_timer.text = "Shi"
+                    1 -> tv_timer.text = "ShiFu"
+                    else -> tv_timer.text = "ShiFumi"
+                }
+            }
+        }
+        timer.start()
     }
 
     /**
@@ -218,6 +160,20 @@ class GameActivity : AppCompatActivity() {
                 }
             }
             timer.start()
+        }
+        if (winner == null) {
+            if (!vsComputer) {
+                val timer = object: CountDownTimer(1000, 1000) {
+                    override fun onFinish() {
+                        actionAutoPlay()
+                    }
+
+                    override fun onTick(p0: Long) {
+                        Log.i(TAG, "$p0")
+                    }
+                }
+                timer.start()
+            }
         }
     }
 
@@ -276,20 +232,6 @@ class GameActivity : AppCompatActivity() {
             if (!vsComputer) {
                 actionAutoPlay()
             } else {
-                /*val timer = object: CountDownTimer(3000, 1000) {
-                    override fun onFinish() {
-                        ll_chooser_default.visibility = View.VISIBLE
-                    }
-
-                    override fun onTick(p0: Long) {
-                        when ((p0/1000).toInt()) {
-                            2 -> tv_timer_start.text = "Shi"
-                            1 -> tv_timer_start.text = "ShiFu"
-                            else -> tv_timer_start.text = "ShiFumi"
-                        }
-                    }
-                }
-                timer.start()*/
                 actionPlay()
             }
         }
@@ -304,7 +246,6 @@ class GameActivity : AppCompatActivity() {
 
 
     private fun showStartGameDialog() {
-
         // before inflating the custom alert dialog layout, we will get the current activity viewGroup
         val viewGroup = findViewById<ViewGroup>(android.R.id.content)
         val dialogView = LayoutInflater.from(this).inflate(R.layout.alert_dialog_custom, viewGroup, false)
@@ -327,25 +268,10 @@ class GameActivity : AppCompatActivity() {
             if (!vsComputer) {
                 actionAutoPlay()
             } else {
-                /*val timer = object: CountDownTimer(3000, 1000) {
-                    override fun onFinish() {
-                        ll_chooser_default.visibility = View.VISIBLE
-                    }
-
-                    override fun onTick(p0: Long) {
-                        when ((p0/1000).toInt()) {
-                            2 -> tv_timer_start.text = "Shi"
-                            1 -> tv_timer_start.text = "ShiFu"
-                            else -> tv_timer_start.text = "ShiFumi"
-                        }
-                    }
-                }
-                timer.start()*/
                 actionPlay()
             }
         }
         alertDialog.show()
-
     }
 
     /**
