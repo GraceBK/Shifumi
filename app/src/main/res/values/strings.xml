@@ -4,9 +4,13 @@
     <string name="rock">Rock</string>
     <string name="paper">Paper</string>
     <string name="scissors">Scissors</string>
-    <string name="btn_vs_computer">vs Computer</string>
-    <string name="btn_vs_human">vs Human</string>
+    <string name="btn_vs_computer">You vs Computer</string>
+    <string name="btn_auto_play">Computer vs Computer</string>
     <string name="logo_desc">Logo</string>
     <string name="version_app">version 1.0.0</string>
     <string name="the_end_tv">Fin de la partie</string>
+    <string name="you_vs_computer">Vous vs Computer</string>
+    <string name="computer_vs_computer">Vous vs Computer</string>
+    <string name="exit_game">Quitter le jeu</string>
+    <string name="exit_game_ask">Voulez-vous quitter le jeu?</string>
 </resources>

@@ -22,25 +22,18 @@
             android:layout_alignParentBottom="true"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent">
 
             <Button
                 android:id="@+id/btn_vs_computer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_btn_style"
-                android:layout_margin="10dp"
-                android:text="@string/btn_vs_computer"
-                android:textColor="@color/brown"/>
+                style="@style/CustomButtonFull"
+                android:text="@string/btn_vs_computer" />
 
             <Button
-                android:id="@+id/btn_vs_human"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_btn_style"
-                android:layout_margin="10dp"
-                android:text="@string/btn_vs_human"
-                android:textColor="@color/brown"/>
+                android:id="@+id/btn_only_computer"
+                style="@style/CustomButtonFull"
+                android:text="@string/btn_auto_play"/>
 
         </LinearLayout>
 

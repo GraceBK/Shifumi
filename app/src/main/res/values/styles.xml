@@ -53,4 +53,22 @@
         <item name="android:editTextBackground">@color/colorAccent</item-->
     </style>
 
+    <style name="CustomButtonFull" parent="Theme.AppCompat"><!--AppCompat.Light.Dialog.Alert-->
+        <item name="android:background">@drawable/bg_btn_style</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="CustomButtonWrap" parent="Theme.AppCompat"><!--AppCompat.Light.Dialog.Alert-->
+        <item name="android:background">@drawable/bg_btn_style</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>

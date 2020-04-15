@@ -3,7 +3,6 @@ package com.neema.shifumi;
 import android.app.Activity;
 import android.content.Context;
 
-import androidx.core.app.ActivityCompat;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
@@ -20,10 +19,10 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class SplashScreenInstrumentedTest {
+public class SplashScreen22InstrumentedTest {
 
     @Rule
-    public ActivityTestRule<SplashScreen> activityTestRule = new ActivityTestRule<>(SplashScreen.class);
+    public ActivityTestRule<SplashScreen22> activityTestRule = new ActivityTestRule<>(SplashScreen22.class);
 
     @Test
     public void useAppContext() {

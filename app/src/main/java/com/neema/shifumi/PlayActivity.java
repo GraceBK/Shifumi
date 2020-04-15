@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +18,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.neema.shifumi.no_android.GameEngine;
-import com.neema.shifumi.no_android.Hand;
-import com.neema.shifumi.no_android.Player;
-import com.neema.shifumi.no_android.PlayerType;
+
+import com.neema.shifumi.gameclass.Player;
+import com.neema.shifumi.gameclass.enums.HandEnum;
 
 import java.util.Objects;
 
@@ -33,7 +31,7 @@ public class PlayActivity extends AppCompatActivity {
     private boolean vsComputer;
     private Player player;
     private Player otherPlayer;
-    private GameEngine gameEngine;
+    //private GameEngine gameEngine;
 
     // View components
     private LinearLayout ll_default;
@@ -51,7 +49,7 @@ public class PlayActivity extends AppCompatActivity {
             initParty();
             vsComputer = Objects.requireNonNull(getIntent().getExtras()).getBoolean("VS_COMPUTER");
             if (!vsComputer) {
-                setContentView(R.layout.human_vs_human);
+                setContentView(R.layout.computer_vs_computer);
             } else {
                 setContentView(R.layout.human_vs_computer);
             }
@@ -62,34 +60,34 @@ public class PlayActivity extends AppCompatActivity {
 
         actionHandsBtn();
 
-        Log.e(TAG, player.getNbWin()+"");
+        //Log.e(TAG, player.getWinner()+"");
     }
 
     private void actionHandsBtn() {
         btnRock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                player.choose(Hand.ROCK);
-                otherPlayer.chooseRandom();
-                gameEngine.play();
+                player.setPlayerHand(HandEnum.ROCK);
+//                otherPlayer. chooseRandom();
+//                gameEngine.play();
                 updateUI();
             }
         });
         btnPaper.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                player.choose(Hand.PAPER);
-                otherPlayer.chooseRandom();
-                gameEngine.play();
+                player.setPlayerHand(HandEnum.PAPER);
+//                otherPlayer.chooseRandom();
+//                gameEngine.play();
                 updateUI();
             }
         });
         btnScissors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                player.choose(Hand.SCISSORS);
-                otherPlayer.chooseRandom();
-                gameEngine.play();
+                player.setPlayerHand(HandEnum.SCISSORS);
+//                otherPlayer.chooseRandom();
+//                gameEngine.play();
                 updateUI();
             }
         });
@@ -98,27 +96,27 @@ public class PlayActivity extends AppCompatActivity {
             btnRock2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    player.choose(Hand.ROCK);
-                    otherPlayer.chooseRandom();
-                    gameEngine.play();
+                    player.setPlayerHand(HandEnum.ROCK);
+//                    otherPlayer.chooseRandom();
+//                    gameEngine.play();
                     updateUI();
                 }
             });
             btnPaper2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    player.choose(Hand.PAPER);
-                    otherPlayer.chooseRandom();
-                    gameEngine.play();
+                    player.setPlayerHand(HandEnum.PAPER);
+//                    otherPlayer.chooseRandom();
+//                    gameEngine.play();
                     updateUI();
                 }
             });
             btnScissors2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    player.choose(Hand.SCISSORS);
-                    otherPlayer.chooseRandom();
-                    gameEngine.play();
+                    player.setPlayerHand(HandEnum.SCISSORS);
+//                    otherPlayer.chooseRandom();
+//                    gameEngine.play();
                     updateUI();
                 }
             });
@@ -143,8 +141,8 @@ public class PlayActivity extends AppCompatActivity {
         TextView nameP2 = dialogView.findViewById(R.id.tv_sc_player2);
         ImageView resultP1 = dialogView.findViewById(R.id.iv_winner1);
         ImageView resultP2 = dialogView.findViewById(R.id.iv_winner2);
-        TextView resultNull = dialogView.findViewById(R.id.tv_sc_data3);
-        nameP1.setText("" + player.getType());
+        //TextView resultNull = dialogView.findViewById(R.id.tv_sc_data3);
+        /*nameP1.setText("" + player.getType());
         nameP2.setText("" + otherPlayer.getType());
         if (player.getNbWin()) {
             resultP1.setImageResource(R.drawable.ic_trophy);
@@ -184,7 +182,7 @@ public class PlayActivity extends AppCompatActivity {
         if (otherPlayer.getMyChoose() == Hand.SCISSORS) {
             iv_hand2.setImageResource(R.drawable.ic_scissors);
         }
-        resultNull.setText("Partie null : " + player.getNbEgality());
+        resultNull.setText("Partie null : " + player.getNbEgality());*/
 
         Button start = dialogView.findViewById(R.id.btn_replay);
         Button stop = dialogView.findViewById(R.id.btn_exit);
@@ -248,15 +246,15 @@ public class PlayActivity extends AppCompatActivity {
 
 
     private void shifumi() {
-        player.chooseRandom();
+        /*player.chooseRandom();
         otherPlayer.chooseRandom();
-        gameEngine.match();
+        gameEngine.match();*/
     }
 
     @SuppressLint("SetTextI18n")
     private void updateUI() {
 
-        if (player.getNbWin() || otherPlayer.getNbWin()) {
+        /*if (player.getNbWin() || otherPlayer.getNbWin()) {
             //ll_default.setVisibility(View.INVISIBLE);
             showReplayDialog();
         }
@@ -283,7 +281,7 @@ public class PlayActivity extends AppCompatActivity {
         }
         if (otherPlayer.getMyChoose() == Hand.SCISSORS) {
             handOtherPlayer.setImageResource(R.drawable.ic_scissors);
-        }
+        }*/
     }
 
     private void initView() {
@@ -305,7 +303,7 @@ public class PlayActivity extends AppCompatActivity {
     }
 
     private void initParty() {
-        player = new Player(PlayerType.HUMAN);
+        /*player = new Player(PlayerType.HUMAN);
         otherPlayer = (Player) getIntent().getSerializableExtra(Player.class.getName());
         player.setNbWin(false);
         player.setNbEgality(0);
@@ -313,6 +311,6 @@ public class PlayActivity extends AppCompatActivity {
         otherPlayer.setNbWin(false);
         otherPlayer.setNbEgality(0);
         assert otherPlayer != null;
-        gameEngine = new GameEngine(player, otherPlayer);
+        gameEngine = new GameEngine(player, otherPlayer);*/
     }
 }
