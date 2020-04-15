@@ -13,4 +13,9 @@
     <string name="computer_vs_computer">Vous vs Computer</string>
     <string name="exit_game">Quitter le jeu</string>
     <string name="exit_game_ask">Voulez-vous quitter le jeu?</string>
+
+    <string name="match_null">Egalité</string>
+    <string name="shi">Shi</string>
+    <string name="shi_fu">Shi-Fu</string>
+    <string name="shi_fu_mi">Shi-Fu-Mi</string>
 </resources>

@@ -49,7 +49,6 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun actionAutoPlay() {
-        var count = 0
         if (computers.size == 2) {
             // https://developer.android.com/reference/kotlin/android/os/CountDownTimer
             val timer = object: CountDownTimer(3000, 1000) {
@@ -62,7 +61,11 @@ class GameActivity : AppCompatActivity() {
                 }
 
                 override fun onTick(p0: Long) {
-                    Log.e(TAG, "good No winner $p0")
+                    when ((p0/1000).toInt()) {
+                        2 -> tv_timer.text = getString(R.string.shi)
+                        1 -> tv_timer.text = getString(R.string.shi_fu)
+                        else -> tv_timer.text = getString(R.string.shi_fu_mi)
+                    }
                 }
 
             }
@@ -109,9 +112,9 @@ class GameActivity : AppCompatActivity() {
 
             override fun onTick(p0: Long) {
                 when ((p0/1000).toInt()) {
-                    2 -> tv_timer.text = "Shi"
-                    1 -> tv_timer.text = "ShiFu"
-                    else -> tv_timer.text = "ShiFumi"
+                    2 -> tv_timer.text = getString(R.string.shi)
+                    1 -> tv_timer.text = getString(R.string.shi_fu)
+                    else -> tv_timer.text = getString(R.string.shi_fu_mi)
                 }
             }
         }
@@ -162,6 +165,7 @@ class GameActivity : AppCompatActivity() {
             timer.start()
         }
         if (winner == null) {
+            tv_timer.text = getString(R.string.match_null)
             if (!vsComputer) {
                 val timer = object: CountDownTimer(1000, 1000) {
                     override fun onFinish() {
