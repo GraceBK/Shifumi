@@ -26,19 +26,13 @@ Pour télécharger et exécuter le projet plusieurs méthode s'offre à vous. Da
 
 ### Ma méthode préferé
 
-1. Ouvrir Android Studio ensuite sélectionner `Check out project from Version Control` (Fig 1) ensuite cliquer sur Git (Fig 2)
-Ensuite copier ce lien `https://github.com/GraceBK/Shifumi` dans (Fig 3)
+1. Ouvrir Android Studio ensuite sélectionner `Check out project from Version Control` [Fig 1](https://github.com/GraceBK/Shifumi/tree/master/SCREENSHOT/fig1.png) ensuite cliquer sur Git [Fig 2](https://github.com/GraceBK/Shifumi/tree/master/SCREENSHOT/fig2.png)
+Ensuite copier ce lien `https://github.com/GraceBK/Shifumi` dans [Fig 3](https://github.com/GraceBK/Shifumi/tree/master/SCREENSHOT/fig3.png)
 Attendre que le téléchargement soit terminé
 
 2. Aller dans `Open an existing Android Studio project` ensuite aller à la racine du projet et ouvrir
 
 3. Pour Exécuter Selectionner votre support entre device (téléphone Android) ou un simulator (Android).
-
-![Diagramme de classe](./SCREENSHOT/DiagramClass.png)
-
-![Diagramme de classe](./SCREENSHOT/DiagramClass.png)
-
-![Diagramme de classe](./SCREENSHOT/DiagramClass.png)
 
 ## Architecture du projet
 
@@ -47,7 +41,6 @@ Attendre que le téléchargement soit terminé
 Dans l'image ci-après le Diagramme de classe de mon programme (Sauf les classes utilisant les composants Android ie: les Activity)
 
 ![Diagramme de classe](./SCREENSHOT/DiagramClass.png)
-
 
 ## Les tests
 
@@ -63,4 +56,4 @@ Je test les régles (quelque :speak_no_evil:) du jeu
 
 ## ScreenShot
 
-![Capture SplashScreenActivity](./SCREENSHOT/img1.jpeg){:height="700px" width="400px"} ![Capture MainActivity Choix](./SCREENSHOT/img2.jpeg){:height="700px" width="400px"} ![Capture GameActivity Start Partie](./SCREENSHOT/img3.jpeg){:height="700px" width="400px"} ![Capture GameActivity vainqueur](./SCREENSHOT/img4.jpeg){:height="700px" width="400px"} ![Capture GameActivity vainqueur](./SCREENSHOT/img5.jpeg){:height="700px" width="400px"}
+Pour avoir un apperçu de l'application se réferer aux images de `img1.jpeg` à `img5.jpeg` contenu dans le dossier [./SCREENSHOT](https://github.com/GraceBK/Shifumi/tree/master/SCREENSHOT)
