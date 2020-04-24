@@ -63,8 +63,4 @@ Je test les régles (quelque :speak_no_evil:) du jeu
 
 ## ScreenShot
 
-![Diagramme de classe](./SCREENSHOT/DiagramClass.png)
-![Diagramme de classe](./SCREENSHOT/DiagramClass.png)
-![Diagramme de classe](./SCREENSHOT/DiagramClass.png)
-![Diagramme de classe](./SCREENSHOT/DiagramClass.png)
-![Diagramme de classe](./SCREENSHOT/DiagramClass.png)
+![Capture SplashScreenActivity](./SCREENSHOT/img1.jpeg) ![Capture MainActivity Choix](./SCREENSHOT/img2.jpeg) ![Capture GameActivity Start Partie](./SCREENSHOT/img3.jpeg) ![Capture GameActivity vainqueur](./SCREENSHOT/img4.jpeg) ![Capture GameActivity vainqueur](./SCREENSHOT/img5.jpeg)
