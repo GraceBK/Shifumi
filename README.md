@@ -63,4 +63,4 @@ Je test les régles (quelque :speak_no_evil:) du jeu
 
 ## ScreenShot
 
-![Capture SplashScreenActivity](./SCREENSHOT/img1.jpeg) ![Capture MainActivity Choix](./SCREENSHOT/img2.jpeg) ![Capture GameActivity Start Partie](./SCREENSHOT/img3.jpeg) ![Capture GameActivity vainqueur](./SCREENSHOT/img4.jpeg) ![Capture GameActivity vainqueur](./SCREENSHOT/img5.jpeg)
+![Capture SplashScreenActivity](./SCREENSHOT/img1.jpeg =300x) ![Capture MainActivity Choix](./SCREENSHOT/img2.jpeg =300x) ![Capture GameActivity Start Partie](./SCREENSHOT/img3.jpeg =300x) ![Capture GameActivity vainqueur](./SCREENSHOT/img4.jpeg =300x) ![Capture GameActivity vainqueur](./SCREENSHOT/img5.jpeg =300x)
