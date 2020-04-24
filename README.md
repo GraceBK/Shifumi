@@ -27,7 +27,7 @@ Pour télécharger et exécuter le projet plusieurs méthodes s'offre à vous. D
 ### pour ma méthode préféré
 
 1. Ouvrir Android Studio ensuite sélectionner `Check out project from Version Control` [Fig 1](https://github.com/GraceBK/Shifumi/tree/master/SCREENSHOT/fig1.png) ensuite cliqué sur Git [Fig 2](https://github.com/GraceBK/Shifumi/tree/master/SCREENSHOT/fig2.png)
-Ensuite copié ce lien `https://github.com/GraceBK/Shifumi` dans [Fig 3](https://github.com/GraceBK/Shifumi/tree/master/SCREENSHOT/fig3.png)
+Ensuite copié ce lien `https://github.com/GraceBK/Shifumi` dans [Fig 3](https://github.com/GraceBK/Shifumi/tree/master/SCREENSHOT/fig3.png) ensuite cloné.
 
 Attendre que le téléchargement soit terminé
 
