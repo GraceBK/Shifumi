@@ -19,6 +19,9 @@ abstract class Player {
         this.hand = SelectHand(handEnum)
     }
 
+    /**
+     * Fonction qui permet de comparer les mains de 2 joueurs
+     */
     fun versus(player: Player): Player? {
         if (this.myHand == HandEnum.ROCK && player.myHand == HandEnum.SCISSORS
                 || this.myHand == HandEnum.SCISSORS && player.myHand == HandEnum.PAPER

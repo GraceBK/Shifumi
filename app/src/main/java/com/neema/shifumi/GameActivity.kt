@@ -48,6 +48,9 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Moteur de Jeu (Computer vs Computer)
+     */
     private fun actionAutoPlay() {
         if (computers.size == 2) {
             // https://developer.android.com/reference/kotlin/android/os/CountDownTimer
@@ -82,6 +85,10 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Les actions de click
+     * Lorsqu'un joueur (Humain) choisi une main
+     */
     private fun actionPlay() {
         if (vsComputer) {
             choose_rock.setOnClickListener {
@@ -149,6 +156,9 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Fonction qui compare la main de deux joueurs
+     */
     private fun play(player1: Player, player2: Player) {
         val winner = player1.versus(player2)
         if (winner is Player) {
